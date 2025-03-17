@@ -1,0 +1,25 @@
+.inquiry-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: #00000056;
+}
+.sticky-no {
+  position: unset !important;
+}
+.is-fixed {
+  position: relative !important;
+}
+.modal {
+  left: 50% !important;
+  max-width: 750px !important;
+  transform: translateX(-50%) scale(0);
+  transition: all 0.2s;
+}
+.scal {
+  transform: translateX(-50%) scale(1) !important;
+  transition: all 0.2s;
+}
