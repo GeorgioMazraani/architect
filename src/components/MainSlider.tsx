@@ -35,7 +35,7 @@ const MainSlider = () => {
             </div>
             <div className="silder-content" data-swiper-parallax="-40%">
               <div className="inner-content">
-                <h6 className="sub-title text-primary">INTERIOR DESIGN</h6>
+                <h6 className="sub-title text-primary">ARCHITECT MANAL CHALAK</h6>
                 <h1 className="title">
                   WE CREAT YOUR DREAM IDEAS
                   <span>CREATIVE</span>{" "}

@@ -25,7 +25,6 @@ import servic_pic5 from "../assets/images/services/pic5.jpg";
 import servic_pic6 from "../assets/images/services/pic6.jpg";
 
 import servic_pic7 from "../assets/images/services/pic7.jpg";
-
 import servic_pic8 from "../assets/images/services/pic8.jpg";
 import backgroun_pattern1 from "../assets/images/background/pattern1.png";
 
@@ -133,7 +132,6 @@ import blog_grid_pic8 from "../assets/images/blog/blog-grid/pic8.jpg";
 import blog_grid_pic9 from "../assets/images/blog/blog-grid/pic9.jpg";
 import background_bg6 from "../assets/images/background/bg6.jpg";
 
-
 import switcher_small_bg1 from "../assets/images/switcher/switcher-bg/bg1.jpg";
 import switcher_small_bg2 from "../assets/images/switcher/switcher-bg/bg2.jpg";
 import switcher_small_bg3 from "../assets/images/switcher/switcher-bg/bg3.jpg";
@@ -182,6 +180,26 @@ import architecture7 from "../assets/images/architecture/architecture7.jpg";
 import architecture8 from "../assets/images/architecture/architecture8.jpg";
 import architecture9 from "../assets/images/architecture/architecture9.jpg";
 import architecture10 from "../assets/images/architecture/architecture10.jpg";
+
+// ⬇️ ADDING 8 RESIDENTIAL IMAGES
+import residential1 from "../assets/images/residential/residential1.jpg";
+import residential2 from "../assets/images/residential/residential2.jpg";
+import residential3 from "../assets/images/residential/residential3.jpg";
+import residential4 from "../assets/images/residential/residential4.jpg";
+import residential5 from "../assets/images/residential/residential5.jpg";
+import residential6 from "../assets/images/residential/residential6.jpg";
+import residential7 from "../assets/images/residential/residential7.jpg";
+import residential8 from "../assets/images/residential/residential8.jpg";
+
+// ⬇️ ADDING 8 COMMERCIAL IMAGES
+import commercial1 from "../assets/images/commercial/commercial1.jpg";
+import commercial2 from "../assets/images/commercial/commercial2.jpg";
+import commercial3 from "../assets/images/commercial/commercial3.jpg";
+import commercial4 from "../assets/images/commercial/commercial4.jpg";
+import commercial5 from "../assets/images/commercial/commercial5.jpg";
+import commercial6 from "../assets/images/commercial/commercial6.jpg";
+import commercial7 from "../assets/images/commercial/commercial7.jpg";
+import commercial8 from "../assets/images/commercial/commercial8.jpg";
 
 export const IMAGES = {
   logo: logo,
@@ -317,7 +335,6 @@ export const IMAGES = {
   blog_grid_pic9: blog_grid_pic9,
   background_bg6: background_bg6,
 
-
   switcher_small_bg1: switcher_small_bg1,
   switcher_small_bg2: switcher_small_bg2,
   switcher_small_bg3: switcher_small_bg3,
@@ -364,4 +381,24 @@ export const IMAGES = {
   architecture8: architecture8,
   architecture9: architecture9,
   architecture10: architecture10,
+
+  // ⬇️ ADDED 8 Residential
+  residential1: residential1,
+  residential2: residential2,
+  residential3: residential3,
+  residential4: residential4,
+  residential5: residential5,
+  residential6: residential6,
+  residential7: residential7,
+  residential8: residential8,
+
+  // ⬇️ ADDED 8 Commercial
+  commercial1: commercial1,
+  commercial2: commercial2,
+  commercial3: commercial3,
+  commercial4: commercial4,
+  commercial5: commercial5,
+  commercial6: commercial6,
+  commercial7: commercial7,
+  commercial8: commercial8,
 };

@@ -5,57 +5,28 @@ import { MenuList, MenuList2 } from "../elements/MenuArr";
 import { HeaderSocialIcon } from "../elements/JsonData";
 import { IMAGES } from "../elements/theme";
 
-// Define the shape of individual submenu items
+// Define the props type
+interface MenuProps {
+  onLinkClick: () => void;
+}
+
+// Define the shape of menu items
 interface MenuChild {
   to: string;
   children: string;
 }
 
-// Define the shape of the main menu items
 interface MenuItem {
   menu: string;
   to?: string;
   child?: MenuChild[];
-  className?: string; // For items that have a special class like "menu-down"
+  className?: string;
 }
 
-// Define the shape of your component's reducer state
-interface IMenuState {
-  activeSubmenu: string;
-}
-
-// The action type for your reducer is simply a partial update to IMenuState
-type MenuAction = Partial<IMenuState>;
-
-// Reducer to handle submenu state
-const reducer = (previousState: IMenuState, updatedState: MenuAction): IMenuState => {
-  return {
-    ...previousState,
-    ...updatedState,
-  };
-};
-
-const initialState: IMenuState = {
-  activeSubmenu: "",
-};
-
-const Menu = () => {
+const Menu = ({ onLinkClick }: MenuProps) => {
   const location = useLocation();
   const [menuactive, setMenuactive] = useState<string>("");
 
-  // Use a reducer to track and update the active submenu
-  const [state, setState] = useReducer(reducer, initialState);
-
-  // Handles opening/closing of dropdowns
-  const menuHandler = (status: string) => {
-    setState({ activeSubmenu: status });
-    // Close the submenu if it's already active
-    if (state.activeSubmenu === status) {
-      setState({ activeSubmenu: "" });
-    }
-  };
-
-  // Tracks active menu based on current route
   useEffect(() => {
     MenuList.forEach((item: MenuItem) => {
       item.child?.forEach((data) => {
@@ -81,7 +52,7 @@ const Menu = () => {
     <>
       {/* Logo Section */}
       <div className="logo-header logo-dark">
-        <Link to="/">
+        <Link to="/" onClick={onLinkClick}>
           <img src={IMAGES.logo} alt="Logo" />
         </Link>
       </div>
@@ -89,29 +60,23 @@ const Menu = () => {
       {/* Left Navigation Menu */}
       <ul className="nav navbar-nav navbar navbar-left">
         {MenuList.map((item: MenuItem, ind: number) => (
-          <li
-            className={`${menuactive === item.menu ? "active" : ""}`}
-            key={ind}
-          >
+          <li key={ind} className={`${menuactive === item.menu ? "active" : ""}`}>
             {item.to ? (
-              // Direct link if "to" exists
-              <Link to={item.to}>{item.menu}</Link>
+              <Link to={item.to} onClick={onLinkClick}>
+                {item.menu}
+              </Link>
             ) : (
               <>
-                {/* Dropdown Menu */}
-                <Link
-                  to="#"
-                  onClick={() => {
-                    menuHandler(item.menu);
-                  }}
-                >
+                <Link to="#" onClick={onLinkClick}>
                   {item.menu}
                 </Link>
                 {item.child && (
                   <ul className="sub-menu">
                     {item.child.map((data, index) => (
                       <li key={index}>
-                        <Link to={data.to}>{data.children}</Link>
+                        <Link to={data.to} onClick={onLinkClick}>
+                          {data.children}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -125,48 +90,15 @@ const Menu = () => {
       {/* Right Navigation Menu */}
       <ul className="nav navbar-nav navbar navbar-right">
         {MenuList2.map((item: MenuItem, ind: number) => {
-          const { menu, child, className } = item;
-
-          // Dropdown menus
-          if (className === "menu-down") {
-            return (
-              <li
-                className={`sub-menu-down ${
-                  menuactive === item.menu ? "active" : ""
-                } ${state.activeSubmenu === item.menu ? "open" : ""}`}
-                key={ind}
-              >
-                <Link
-                  to="#"
-                  onClick={() => {
-                    menuHandler(item.menu);
-                  }}
-                >
-                  {menu}
-                </Link>
-                {child && (
-                  <ul className="sub-menu">
-                    {child.map((data, index) => (
-                      <li key={index}>
-                        <Link to={data.to}>{data.children}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            );
-          }
-
-          // Direct links
           if (item.to) {
             return (
               <li key={ind}>
-                <Link to={item.to}>{item.menu}</Link>
+                <Link to={item.to} onClick={onLinkClick}>
+                  {item.menu}
+                </Link>
               </li>
             );
           }
-
-          // If no matching structure, render nothing
           return null;
         })}
       </ul>
@@ -174,9 +106,9 @@ const Menu = () => {
       {/* Social Media Icons */}
       <div className="dz-social-icon">
         <ul>
-          {HeaderSocialIcon.map((icons: { icon: string }, ind: number) => (
+          {HeaderSocialIcon.map((icons, ind) => (
             <li key={ind}>
-              <Link className={icons.icon} to="#"></Link>
+              <Link className={icons.icon} to="#" onClick={onLinkClick}></Link>
             </li>
           ))}
         </ul>

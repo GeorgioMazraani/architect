@@ -8,35 +8,40 @@ import lgZoom from "lightgallery/plugins/zoom";
 import { HomeGalleryArr } from "../elements/JsonData";
 import { useState } from "react";
 
+// Updated category buttons
 const buttons = [
-  { title: "All" },
   { title: "Architecture" },
-  { title: "Interior Design" },
+  { title: "Commercial" },
+  { title: "Residential" },
 ];
 
 const Portfolio = () => {
   const [data, setData] = useState(HomeGalleryArr);
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState("Architecture");
 
   const FilterButton = (title: string) => {
     setActive(title);
 
-    if (title === "Interior Design") {
-      const filteredInterior = HomeGalleryArr.filter((el) =>
-        el.categery.includes("Interior Design")
-      ).slice(0, 5); // Show first 5 Interior Design images
-      setData(filteredInterior);
-    } else if (title === "Architecture") {
+    if (title === "Commercial") {
+      const filteredCommercial = HomeGalleryArr.filter((el) =>
+        el.categery.includes("Commercial")
+      );
+      setData(filteredCommercial);
+    } else if (title === "Residential") {
+      const filteredResidential = HomeGalleryArr.filter((el) =>
+        el.categery.includes("Residential")
+      );
+      setData(filteredResidential);
+    } else {
+      // Default to "Architecture"
       const filteredArchitecture = HomeGalleryArr.filter((el) =>
         el.categery.includes("Architecture")
       );
       setData(filteredArchitecture);
-    } else {
-      setData(HomeGalleryArr);
     }
   };
 
-  // Helper function returns the correct label based on the image and its category.
+  // Helper function to get image labels
   const getImageLabel = (img: string, category: string) => {
     if (category.includes("Architecture")) {
       if (img === IMAGES.architecture1 || img === IMAGES.architecture2)
@@ -50,29 +55,20 @@ const Portfolio = () => {
       if (img === IMAGES.architecture9 || img === IMAGES.architecture10)
         return "Padel Courts";
       return "Architecture";
-    } else if (category.includes("Interior Design")) {
-      if (img === IMAGES.interior1 || img === IMAGES.interior2)
-        return "Master Bedroom";
-      if (img === IMAGES.interior3 || img === IMAGES.interior4)
-        return "Salon";
-      if (img === IMAGES.interior5 || img === IMAGES.interior6)
-        return "Living Room";
-      if (img === IMAGES.interior7 || img === IMAGES.interior8)
-        return "Grand Bedroom";
-      if (img === IMAGES.interior9 || img === IMAGES.interior10)
-        return "KSI Interior Villa";
-      return "Interior Design";
+    } else if (category.includes("Commercial")) {
+      return "Commercial Project";
+    } else if (category.includes("Residential")) {
+      return "Residential Project";
     }
     return "";
   };
 
-  // Apply a consistent style to all images.
+  // Apply a consistent style to all images
   const imageStyle: React.CSSProperties = {
     width: "100%",
     height: "300px",
     objectFit: "cover",
   };
-  
 
   return (
     <div className="page-content bg-white">
@@ -93,11 +89,7 @@ const Portfolio = () => {
             </ul>
           </div>
         </div>
-        <LightGallery
-          speed={500}
-          plugins={[lgThumbnail, lgZoom]}
-          selector={".lightimg"}
-        >
+        <LightGallery speed={500} plugins={[ lgZoom]} selector={".lightimg"}>
           <Swiper
             className="swiper-container swiper-portfolio lightgallery aos-item"
             slidesPerView={4}
@@ -124,13 +116,9 @@ const Portfolio = () => {
                     >
                       <img src={item.img} alt="" style={{ display: "none" }} />
                     </span>
-                    <h6 className="sub-title">
-                      {getImageLabel(item.img, item.categery)}
-                    </h6>
+                    <h6 className="sub-title">{getImageLabel(item.img, item.categery)}</h6>
                     <h4 className="title m-b15">
-                      <Link to="/portfolio-details">
-                        {getImageLabel(item.img, item.categery)}
-                      </Link>
+                      <Link to="/portfolio-details">{getImageLabel(item.img, item.categery)}</Link>
                     </h4>
                   </div>
                 </div>
@@ -148,13 +136,9 @@ const Portfolio = () => {
                       >
                         <img src={item.img2} alt="" style={{ display: "none" }} />
                       </span>
-                      <h6 className="sub-title">
-                        {getImageLabel(item.img, item.categery)}
-                      </h6>
+                      <h6 className="sub-title">{getImageLabel(item.img, item.categery)}</h6>
                       <h4 className="title m-b15">
-                        <Link to="/portfolio-details">
-                          {getImageLabel(item.img, item.categery)}
-                        </Link>
+                        <Link to="/portfolio-details">{getImageLabel(item.img, item.categery)}</Link>
                       </h4>
                     </div>
                   </div>

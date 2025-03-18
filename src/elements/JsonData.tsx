@@ -9,61 +9,82 @@ export const MainSliderArr = [
   { img: IMAGES.mainslid_pic2 },
 ];
 export const HomeGalleryArr = [
-  // Interior Design Images
-  {
-    img: IMAGES.interior1,
-    img2: IMAGES.interior2,
-    categery: "All Interior Design",
-  },
-  {
-    img: IMAGES.interior3,
-    img2: IMAGES.interior4,
-    categery: "All Interior Design",
-  },
-  {
-    img: IMAGES.interior5,
-    img2: IMAGES.interior6,
-    categery: "All Interior Design",
-  },
-  {
-    img: IMAGES.interior7,
-    img2: IMAGES.interior8,
-    categery: "All Interior Design",
-  },
-  {
-    img: IMAGES.interior9,
-    img2: IMAGES.interior10,
-    categery: "All Interior Design Construction",
-  },
+   // 4 Architecture Images (Items 1–4)
+   { img: IMAGES.architecture1, img2: IMAGES.architecture2, categery: "Architecture" },
+   { img: IMAGES.architecture3, img2: IMAGES.architecture4, categery: "Architecture" },
+   { img: IMAGES.architecture5, img2: IMAGES.architecture6, categery: "Architecture" },
+   { img: IMAGES.architecture7, img2: IMAGES.architecture8, categery: "Architecture" },
  
+   // 2 Grand Bedroom Images (Items 5–6)
+   { img: IMAGES.interior1, img2: IMAGES.interior2, categery: "Grand Bedroom" },
+   { img: IMAGES.interior3, img2: IMAGES.interior4, categery: "Grand Bedroom" },
+ 
+   // 2 Salon Images (Items 7–8)
+   { img: IMAGES.interior5, img2: IMAGES.interior6, categery: "Salon" },
+   { img: IMAGES.interior7, img2: IMAGES.interior8, categery: "Salon" },
+  
+   // Commercial Images (8 images)
+  {
+    img: IMAGES.commercial1,
+    img2: IMAGES.commercial2,
+    categery: "Commercial",
+  },
+  {
+    img: IMAGES.commercial3,
+    img2: IMAGES.commercial4,
+    categery: "Commercial",
+  },
+  {
+    img: IMAGES.commercial5,
+    img2: IMAGES.commercial6,
+    categery: "Commercial",
+  },
+  {
+    img: IMAGES.commercial7,
+    img2: IMAGES.commercial8,
+    categery: "Commercial",
+  },
 
-  // Architecture Images
+  // Residential Images (8 images)
+  {
+    img: IMAGES.residential1,
+    img2: IMAGES.residential2,
+    categery: "Residential",
+  },
+  {
+    img: IMAGES.residential3,
+    img2: IMAGES.residential4,
+    categery: "Residential",
+  },
+  {
+    img: IMAGES.residential5,
+    img2: IMAGES.residential6,
+    categery: "Residential",
+  },
+  {
+    img: IMAGES.residential7,
+    img2: IMAGES.residential8,
+    categery: "Residential",
+  },
+
+  // Architecture Images (Optional)
   {
     img: IMAGES.architecture1,
     img2: IMAGES.architecture2,
-    categery: "All Architecture",
+    categery: "Architecture",
   },
   {
     img: IMAGES.architecture3,
     img2: IMAGES.architecture4,
-    categery: "All Architecture",
+    categery: "Architecture",
   },
   {
     img: IMAGES.architecture5,
     img2: IMAGES.architecture6,
-    categery: "All Architecture",
-  },
-  {
-    img: IMAGES.architecture7,
-    img2: IMAGES.architecture8,
-    categery: "All Architecture",
-  },
-  {
-    img: IMAGES.architecture9,
-    img2: IMAGES.architecture10,
-    categery: "All Architecture Construction",
+    categery: "Architecture",
   }
 ];
+
 
 
 export const HomeServicesArr = [

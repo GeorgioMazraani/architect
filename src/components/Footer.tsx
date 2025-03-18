@@ -39,28 +39,6 @@ const Footer = () => {
                 All rights reserved.
               </span>
             </div>
-            <div className="col-lg-6 col-md-5 text-end">
-              <ul className="social-list style-1">
-                <li>
-                  <Link to="#">
-                    <i className="fab fa-facebook-f"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="fab fa-instagram"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="fab fa-linkedin"></i></Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="fab fa-tiktok"></i></Link>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>

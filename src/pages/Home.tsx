@@ -27,7 +27,7 @@ const Home = () => {
         <div className="container">
           <div className="section-head style-1 text-center">
             <h2 className="title">
-              WELCOME TO <span className="text-primary">MANALSHALAK</span>
+            WHY CHOOSE US?
             </h2>
             <div className="dz-separator style-1 text-primary"></div>
           </div>

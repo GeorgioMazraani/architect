@@ -28,42 +28,11 @@ const HomeGallery = ({ prev, next }: propsFile) => {
     objectFit: "cover",
   };
 
-  // Helper function returns the correct label based on the image and its category.
-  const getImageLabel = (img: string, category: string) => {
-    if (category.includes("Architecture")) {
-      if (img === IMAGES.architecture1 || img === IMAGES.architecture2)
-        return "Lebanese Style";
-      if (img === IMAGES.architecture3 || img === IMAGES.architecture4)
-        return "KSA Villa";
-      if (img === IMAGES.architecture5 || img === IMAGES.architecture6)
-        return "Modern Villa";
-      if (img === IMAGES.architecture7 || img === IMAGES.architecture8)
-        return "Medical Tourism";
-      if (img === IMAGES.architecture9 || img === IMAGES.architecture10)
-        return "Padel Courts";
-      return "Architecture";
-    } else if (category.includes("Interior Design")) {
-      if (img === IMAGES.interior1 || img === IMAGES.interior2)
-        return "Master Bedroom";
-      if (img === IMAGES.interior3 || img === IMAGES.interior4)
-        return "Salon";
-      if (img === IMAGES.interior5 || img === IMAGES.interior6)
-        return "Living Room";
-      if (img === IMAGES.interior7 || img === IMAGES.interior8)
-        return "Grand Bedroom";
-      if (img === IMAGES.interior9 || img === IMAGES.interior10)
-        return "KSI Interior Villa";
-      return "Interior Design";
-    }
-    return "";
-  };
+  // Get the first 8 images (4 Architecture, 2 Grand Bedrooms, 2 Salon)
+  const filteredImages = HomeGalleryArr.slice(0, 8);
 
   return (
-    <LightGallery
-      speed={500}
-      plugins={[lgThumbnail, lgZoom]}
-      selector={".lightimg"}
-    >
+    <LightGallery speed={500} plugins={[ lgZoom]} selector={".lightimg"}>
       <Swiper
         className="swiper-container swiper-portfolio lightgallery aos-item"
         slidesPerView={4}
@@ -82,107 +51,24 @@ const HomeGallery = ({ prev, next }: propsFile) => {
           240: { slidesPerView: 1 },
         }}
       >
-        {(HomeGalleryArr as GalleryItem[]).map((item, ind) => {
-          if (item?.className !== "hide") {
-            return (
-              <SwiperSlide className="swiper-slide" key={ind}>
-                <div className="dz-box overlay style-1">
-                  <div className="dz-media">
-                    <img src={item.img} alt="" style={imageStyle} />
-                  </div>
-                  <div className="dz-info">
-                    <span
-                      data-exthumbimage={item.img}
-                      data-src={item.img}
-                      className="view-btn lightimg"
-                      title={getImageLabel(item.img, item.categery)}
-                    >
-                      <img
-                        src={item.img}
-                        alt=""
-                        style={{ display: "none" }}
-                      />
-                    </span>
-                    <h6 className="sub-title">
-                      {getImageLabel(item.img, item.categery)}
-                    </h6>
-                    <h4 className="title m-b15">
-                      <Link to="/portfolio-details">
-                        {getImageLabel(item.img, item.categery)}
-                      </Link>
-                    </h4>
-                  </div>
-                </div>
-                {item?.img2 && (
-                  <div className="dz-box overlay style-1">
-                    <div className="dz-media">
-                      <img src={item.img2} alt="" style={imageStyle} />
-                    </div>
-                    <div className="dz-info">
-                      <span
-                        data-exthumbimage={item.img2}
-                        data-src={item.img2}
-                        className="view-btn lightimg"
-                        title={getImageLabel(item.img, item.categery)}
-                      >
-                        <img
-                          src={item.img2}
-                          alt=""
-                          style={{ display: "none" }}
-                        />
-                      </span>
-                      <h6 className="sub-title">
-                        {getImageLabel(item.img, item.categery)}
-                      </h6>
-                      <h4 className="title m-b15">
-                        <Link to="/portfolio-details">
-                          {getImageLabel(item.img, item.categery)}
-                        </Link>
-                      </h4>
-                    </div>
-                  </div>
-                )}
-              </SwiperSlide>
-            );
-          } else {
-            return (
-              <SwiperSlide className="swiper-slide" key={ind}>
-                <div className="dz-box overlay style-1">
-                  <div className="dz-media">
-                    <img src={item.img} alt="" style={imageStyle} />
-                  </div>
-                  <div className="dz-info">
-                    <span
-                      data-exthumbimage={item.img}
-                      data-src={item.img}
-                      className="view-btn lightimg"
-                      title={getImageLabel(item.img, item.categery)}
-                    >
-                      <img
-                        src={item.img}
-                        alt=""
-                        style={{ display: "none" }}
-                      />
-                    </span>
-                    <h6 className="sub-title">
-                      {getImageLabel(item.img, item.categery)}
-                    </h6>
-                    <h4 className="title m-b15">
-                      <Link to="/portfolio-details">
-                        {getImageLabel(item.img, item.categery)}
-                      </Link>
-                    </h4>
-                  </div>
-                </div>
-                <div className="dz-box overlay style-1">
-                  <div className="dz-media">
-                    <img src={item.img2} alt="" style={imageStyle} />
-                  </div>
-                </div>
-              </SwiperSlide>
-            );
-          }
-        })}
+        {filteredImages.map((item, ind) => (
+          <SwiperSlide className="swiper-slide" key={ind}>
+            <div className="dz-box overlay style-1">
+              <div className="dz-media">
+                <img src={item.img} alt="" style={imageStyle} />
+              </div>
+              <div className="dz-info">
+                <span data-exthumbimage={item.img} data-src={item.img} className="view-btn lightimg">
+                  <img src={item.img} alt="" style={{ display: "none" }} />
+                </span>
+                <h6 className="sub-title">{item.categery}</h6>
+                <h4 className="title m-b15">
+                  <Link to="/portfolio-details">{item.categery}</Link>
+                </h4>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </LightGallery>
   );

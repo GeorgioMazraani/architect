@@ -100,7 +100,8 @@ const Header = () => {
               }`}
               id="navbarNavDropdown"
             >
-              <Menu />
+              <Menu onLinkClick={() => setSidebarShow(false)} />
+
             </div>
           </div>
         </div>
