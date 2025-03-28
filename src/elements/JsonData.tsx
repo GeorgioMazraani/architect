@@ -90,17 +90,21 @@ export const HomeGalleryArr = [
 export const HomeServicesArr = [
   {
     img: IMAGES.servic_pic1,
-    title: "Architecture Design",
+    title: "Architectural Design",
+    description: "Innovative and functional designs tailored to your needs and vision.",
   },
   {
     img: IMAGES.servic_pic2,
     title: "Construction",
+    description: "Reliable construction services with attention to quality, detail, and timelines.",
   },
   {
     img: IMAGES.servic_pic3,
     title: "Interior Design",
+    description: "Stylish, comfortable, and personalized interior solutions that bring spaces to life.",
   },
 ];
+
 export const HomeModalBoxArr = [
   { num: 1, title: "Concept" },
   { num: 2, title: "Idea" },
@@ -206,35 +210,51 @@ export const RelatedWorkGalleryArr = [
 export const ServicesArr = [
   {
     img: IMAGES.servic_pic1,
-    title: "Architecture Design",
+    title: "Architectural Design",
+    description:
+      "Innovative and functional designs tailored to your needs and vision.",
   },
   {
     img: IMAGES.servic_pic2,
     title: "Construction",
+    description:
+      "Reliable construction services with attention to quality, detail, and timelines.",
   },
   {
     img: IMAGES.servic_pic3,
     title: "Interior Design",
+    description:
+      "Stylish, comfortable, and personalized interior solutions that bring spaces to life.",
   },
   {
     img: IMAGES.servic_pic4,
     title: "Real Estate",
+    description:
+      "Comprehensive support in property selection, evaluation, and investment.",
   },
   {
     img: IMAGES.servic_pic5,
-    title: "License & Permits",
+    title: "Licenses & Permits",
+    description:
+      "Handling all legal procedures to ensure smooth and compliant project approvals.",
   },
   {
     img: IMAGES.servic_pic6,
     title: "Topography",
+    description:
+      "Accurate land surveying and analysis to support efficient and informed planning.",
   },
   {
     img: IMAGES.servic_pic7,
-    title: "Administrative Transactions & Documentation",
+    title: "Administrative Documentation",
+    description:
+      "Managing the required documentation to streamline your project's execution.",
   },
   {
     img: IMAGES.servic_pic8,
     title: "Project Management",
+    description:
+      "Overseeing every phase from inception to completion to ensure timely and cost-effective results.",
   },
 ];
 

@@ -12,23 +12,17 @@ const Contact = () => {
               <form
                 className="dz-form style-1 dzForm radius-no"
                 method="POST"
-                action="script/contact_smtp.php"
+                action="https://formspree.io/f/xdkelgpz"
               >
-                <input
-                  type="hidden"
-                  className="form-control"
-                  name="dzToDo"
-                  value="Contact"
-                />
-                <div className="dzFormMsg"></div>
                 <div className="row sp10">
                   <div className="col-sm-6 m-b20">
                     <div className="input-group">
                       <input
                         type="text"
                         className="form-control"
-                        name="dzFirstName"
+                        name="first_name"
                         placeholder="First Name"
+                        required
                       />
                     </div>
                   </div>
@@ -37,18 +31,20 @@ const Contact = () => {
                       <input
                         type="text"
                         className="form-control"
-                        name="dzLastName"
+                        name="last_name"
                         placeholder="Last Name"
+                        required
                       />
                     </div>
                   </div>
                   <div className="col-sm-6 m-b20">
                     <div className="input-group">
                       <input
-                        type="text"
+                        type="email"
                         className="form-control"
-                        name="dzEmail"
+                        name="email"
                         placeholder="Email"
+                        required
                       />
                     </div>
                   </div>
@@ -57,7 +53,7 @@ const Contact = () => {
                       <input
                         type="text"
                         className="form-control"
-                        name="dzPhoneNumber"
+                        name="phone"
                         placeholder="Phone No."
                       />
                     </div>
@@ -67,36 +63,25 @@ const Contact = () => {
                       <input
                         type="text"
                         className="form-control"
-                        name="dzOther[subject]"
+                        name="subject"
                         placeholder="Subject"
+                        required
                       />
                     </div>
                   </div>
                   <div className="col-sm-12 m-b20">
                     <div className="input-group">
                       <textarea
-                        name="dzMessage"
+                        name="message"
                         className="form-control"
                         placeholder="Message"
+                        required
                       ></textarea>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 m-b20">
-                    <div className="input-group">
-                      <div className="g-recaptcha"></div>
-                      <input
-                        className="form-control d-none"
-                        style={{ display: "none" }}
-                        data-recaptcha="true"
-                        data-error="Please complete the Captcha"
-                      />
                     </div>
                   </div>
                   <div className="col-sm-12">
                     <button
-                      name="submit"
-                      type="button"
-                      value="submit"
+                      type="submit"
                       className="btn btn-primary"
                     >
                       SEND MESSAGE <i className="m-l10 fas fa-caret-right"></i>
@@ -105,6 +90,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
+
             <div className="col-xl-6 col-lg-6">
               <div className="row">
                 <div className="col-lg-12 m-b30">
@@ -116,7 +102,7 @@ const Contact = () => {
                     </div>
                     <div className="icon-content">
                       <h4 className="tilte m-b10">Call Now</h4>
-                      <p className="m-b0">+91 123 456 7890, +91 987 654 3210</p>
+                      <p className="m-b0">+96170037300</p>
                     </div>
                   </div>
                 </div>
@@ -129,7 +115,9 @@ const Contact = () => {
                     </div>
                     <div className="icon-content">
                       <h4 className="tilte m-b10">Location</h4>
-                      <p className="m-b0">info@gmail.com, services@gmail.com</p>
+                      <p className="m-b0">
+                        Chekka, Batroun, North Lebanon. Ragheb Center, Block B, First Floor
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -142,7 +130,7 @@ const Contact = () => {
                     </div>
                     <div className="icon-content">
                       <h4 className="tilte m-b10">Email Now</h4>
-                      <p className="m-b0">15/B Miranda House, New York, US</p>
+                      <p className="m-b0">info@manalshalak.com</p>
                     </div>
                   </div>
                 </div>
@@ -151,8 +139,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };

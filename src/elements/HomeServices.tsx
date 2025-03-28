@@ -6,7 +6,7 @@ const HomeServices = () => {
   return (
     <>
       <div className="row justify-content-center">
-        {HomeServicesArr.map(({ img, title}, ind) => (
+        {HomeServicesArr.map(({ img, title, description }, ind) => (
           <motion.div
             className="col-lg-4 col-md-6 aos-item"
             key={ind}
@@ -15,6 +15,7 @@ const HomeServices = () => {
             transition={{ duration: 1, delay: 1 }}
           >
             <div className="icon-bx-wraper style-1 m-b30 flip-bx">
+              {/* FRONT SIDE */}
               <div
                 className="front overlay-black-middle"
                 style={{ backgroundImage: `url(${img})` }}
@@ -27,21 +28,15 @@ const HomeServices = () => {
                   </div>
                 </div>
               </div>
+
+              {/* BACK SIDE */}
               <div className="back">
                 <div className="inner">
                   <div>
                     <div className="sep-tl"></div>
                     <div className="sep-br"></div>
-                    
-                    <h4 className="title m-b15">
-                      <Link to="/services-details" className="text-white">
-                        {title}
-                      </Link>
-                    </h4>
-                    <p>
-                      Quisque vel condimentum dolor, vitae luctus lacus. Integer
-                      finibus arcu non ultrices rhoncus.
-                    </p>
+                    <h4 className="title m-b15 text-white">{title}</h4>
+                    <p>{description}</p>
                   </div>
                 </div>
               </div>
@@ -49,6 +44,7 @@ const HomeServices = () => {
           </motion.div>
         ))}
       </div>
+
       <div className="text-center mt-4">
         <Link to="/services" className="btn shadow-primary btn-primary">
           VIEW ALL SERVICES <i className="m-l10 fas fa-caret-right"></i>
