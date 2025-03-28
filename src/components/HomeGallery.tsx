@@ -1,18 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import LightGallery from "lightgallery/react";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import { HomeGalleryArr } from "../elements/JsonData";
-import { IMAGES } from "../elements/theme";
 
-// Define a type for your gallery items.
-interface GalleryItem {
-  img: string;
-  img2?: string;
-  categery: string;
-  className?: string;
-}
+
 
 interface propsFile {
   prev: string;

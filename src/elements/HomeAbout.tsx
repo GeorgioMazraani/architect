@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IMAGES } from "./theme";
-
+import { PanInfo } from "framer-motion";
 const slides = [
   {
     id: "intro",
@@ -42,13 +42,19 @@ function HomeAbout() {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleDragEnd = (e, { offset, velocity }) => {
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    const { offset, velocity } = info;
     if (offset.x < -100 || velocity.x < -500) {
       handleNext();
     } else if (offset.x > 100 || velocity.x > 500) {
       handlePrev();
     }
   };
+  
+  
 
   useEffect(() => {
     if (!paused) {

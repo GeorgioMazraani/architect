@@ -3,7 +3,6 @@ import { IMAGES } from "../elements/theme";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LightGallery from "lightgallery/react";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import { HomeGalleryArr } from "../elements/JsonData";
 import { useState } from "react";
