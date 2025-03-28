@@ -1,7 +1,6 @@
 
 import CommonBanner from "../elements/CommonBanner";
 import HomeAbout from "../elements/HomeAbout";
-import OurFeatures from "../elements/OurFeatures";
 import { IMAGES } from "../elements/theme";
 
 const AboutUs = () => {
@@ -22,7 +21,6 @@ const AboutUs = () => {
           <HomeAbout />
         </div>
       </section>
-      <OurFeatures />
       
     </div>
   );

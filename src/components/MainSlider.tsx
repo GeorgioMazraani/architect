@@ -38,15 +38,10 @@ const MainSlider = () => {
                 <h6 className="sub-title text-primary">ARCHITECT MANAL CHALAK</h6>
                 <h1 className="title">
                   WE CREAT YOUR DREAM IDEAS
-                  <span>CREATIVE</span>{" "}
-                  <span className="text-primary">ARCHITECTURE</span>
                 </h1>
                 <p className="m-b30">
-                  Quisque vel condimentum dolor, vitae luctus lacus. Integer
-                  finibus arcu non ultrices rhoncus. Sed pulvinar augue diam,
-                  sed commodo urna vehicula quis. Ut accumsan mauris vel neque
-                  tristique, ut egestas orci aliquet. Aliquam non turpis id
-                  nulla semper porta.
+                With over 16 years of experience in architecture and consultancy, Manal Shalak has established a
+                reputation for delivering innovative, functional, and aesthetically refined designs.
                 </p>
                 <Link to="/about-us" className="btn shadow-primary btn-primary">
                   READ MORE <i className="m-l10 fas fa-caret-right"></i>

@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react";
 import HomeGallery from "../components/HomeGallery";
 
 import MainSlider from "../components/MainSlider";
-import HomeAbout from "../elements/HomeAbout";
+import HomeAbout2 from "../elements/HomeAbout2";
 
 import HomeServices from "../elements/HomeServices";
 import { Context } from "../context/contextApi";
@@ -31,7 +31,7 @@ const Home = () => {
             </h2>
             <div className="dz-separator style-1 text-primary"></div>
           </div>
-          <HomeAbout />
+          <HomeAbout2 />
         </div>
       </section>
       <motion.section

@@ -1,49 +1,129 @@
-
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { IMAGES } from "./theme";
-import { motion } from "framer-motion";
 
-const HomeAbout = () => {
+const slides = [
+  {
+    id: "intro",
+    title: "About",
+    content: `Passionate about creating spaces that seamlessly blend creativity with practicality, she works closely with
+              clients to bring their visions to life while ensuring efficiency, sustainability, and high-quality execution.
+              Whether it's residential, commercial, or urban projects, Manal’s expertise transforms concepts into timeless
+              architectural realities.`,
+  },
+  {
+    id: "mission",
+    title: "Mission",
+    content: `To design and deliver architectural solutions that enhance functionality, aesthetics, and sustainability
+              while meeting client expectations. Through a commitment to innovation, precision, and excellence,
+              we strive to create spaces that inspire, serve, and evolve with time.`,
+  },
+  {
+    id: "vision",
+    title: "Vision",
+    content: `To be a leading architectural and consultancy firm recognized for its unique design approach,
+              sustainable practices, and commitment to shaping urban and residential landscapes that enhance
+              quality of life.`,
+  },
+];
+
+function HomeAbout() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
+
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleDragEnd = (e, { offset, velocity }) => {
+    if (offset.x < -100 || velocity.x < -500) {
+      handleNext();
+    } else if (offset.x > 100 || velocity.x > 500) {
+      handlePrev();
+    }
+  };
+
+  useEffect(() => {
+    if (!paused) {
+      const interval = setInterval(() => {
+        handleNext();
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [paused, currentIndex]);
+
   return (
-    <div className="row align-items-center about-bx1">
-      <div className="col-lg-6 m-b30">
-        <div className="dz-media">
-          
-          <div className="img2  aos-item">
-            <motion.img
-              initial={{ opacity: 0, y: "100%" }}
-              whileInView={{ opacity: 1, y: "0%" }}
-              transition={{ duration: 1 }}
-              src={IMAGES.about_pic1}
-              alt=""
-            />
+    <div className="container my-5">
+      <div className="row align-items-center">
+        {/* FIXED IMAGE COLUMN */}
+        <div className="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+          <img
+            src={IMAGES.about_pic2}
+            alt="Architecture"
+            className="img-fluid mx-auto d-block"
+            style={{ maxWidth: "85%", borderRadius: "8px" }}
+          />
+
+        </div>
+
+        {/* TEXT COLUMN */}
+        <div
+          className="col-lg-6 position-relative"
+          style={{ minHeight: 300 }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* SLIDING TEXT */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ x: direction > 0 ? 100 : -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction > 0 ? -100 : 100, opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="position-absolute w-100"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+            >
+              {slides[currentIndex].title && (
+                <h5 className="fw-bold mb-3 fs-4">{slides[currentIndex].title}</h5>
+              )}
+              <p className="fs-6">{slides[currentIndex].content}</p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* BULLETS - OUTSIDE of AnimatePresence */}
+          <div className="d-flex justify-content-center gap-2 mt-5 position-absolute w-100" style={{ bottom: 0 }}>
+            {slides.map((_, i) => (
+              <span
+                key={i}
+                onClick={() => {
+                  setDirection(i > currentIndex ? 1 : -1);
+                  setCurrentIndex(i);
+                }}
+                style={{
+                  cursor: "pointer",
+                  width: 12,
+                  height: 12,
+                  borderRadius: "50%",
+                  backgroundColor: i === currentIndex ? "#333" : "#ccc",
+                  display: "inline-block",
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
-      <div className="col-lg-6 m-b30 aos-item">
-        <h4 className="title">
-          We Design & Create Best Architect Around The World With Inspiration
-        </h4>
-        <div className="year-exp shadow m-b30">
-          <h2 className="year text-primary">16+</h2>
-          <h4 className="text">
-            YEARS OF <span className="text-primary">EXPERIENCE</span>
-          </h4>
-        </div>
-        <p className="m-b15">
-          Aliquam erat volutpat. Nunc erat massa, porttitor vel egestas sit
-          amet, tristique at massa. Donec posuere odio neque, in ultricies lorem
-          aliquet eu. Donec venenatis libero Link nulla placerat egestas. Etiam
-          condimentum tortor vel faucibus aliquam. Sed et auctor orci. Morbi nec
-          cursus quam.
-        </p>
-        <p className="m-b30">
-          Praesent eu suscipit ex, quis pulvinar sem. Interdum et malesuada
-          fames ac ante ipsum primis in faucibus.
-        </p>
-        
-      </div>
     </div>
   );
-};
+}
 
 export default HomeAbout;

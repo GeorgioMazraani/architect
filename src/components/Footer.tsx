@@ -12,10 +12,8 @@ const Footer = () => {
                 <img src={IMAGES.logo} alt="Logo" />
               </div>
               <p className="text">
-                Test laoreet orci id pretium sodales. Nunc ac est dolor. Donec
-                placerat dolor et mi elementum, in suscipit libero tincidunt.
-                Ut at tempor ex, vel auctor tortor. Sed finibus vitae mi et
-                imperdiet.
+                Let’s bring your vision to life.
+                From concept to completion, we create timeless, functional, and inspiring spaces.
               </p>
 
               {/* Contact Us Button */}
@@ -31,17 +29,17 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-md-7 text-start">
+          <div className="row justify-content-center">
+            <div className="col-lg-6 col-md-7 text-center">
               <span className="copyright-text">
                 Copyright © 2025{" "}
-
                 All rights reserved.
               </span>
             </div>
           </div>
         </div>
       </div>
+
     </footer>
   );
 };
