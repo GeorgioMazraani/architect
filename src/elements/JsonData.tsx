@@ -254,8 +254,9 @@ export const ServicesArr = [
     img: IMAGES.servic_pic8,
     title: "Project Management",
     description:
-      "Overseeing every phase from inception to completion to ensure timely and cost-effective results.",
-  },
+      "Structured oversight across all phases to ensure smooth project delivery from start to finish.",
+  }
+  ,
 ];
 
 

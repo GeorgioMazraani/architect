@@ -60,7 +60,7 @@ function HomeAbout() {
     if (!paused) {
       const interval = setInterval(() => {
         handleNext();
-      }, 3000);
+      }, 10000);
       return () => clearInterval(interval);
     }
   }, [paused, currentIndex]);

@@ -10,7 +10,9 @@ const AboutUs = () => {
       <section
         className="content-inner line-img section-title style-2"
         data-name="About Us"
+        style={{ marginTop: "0px", paddingTop: "20px" }} // adjust this as needed
       >
+
         <div className="container">
           <div className="section-head style-1 text-center">
             <h2 className="title">
@@ -21,7 +23,7 @@ const AboutUs = () => {
           <HomeAbout />
         </div>
       </section>
-      
+
     </div>
   );
 };

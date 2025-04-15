@@ -35,9 +35,9 @@ const MainSlider = () => {
             </div>
             <div className="silder-content" data-swiper-parallax="-40%">
               <div className="inner-content">
-                <h6 className="sub-title text-primary">ARCHITECT MANAL CHALAK</h6>
+                <h6 className="sub-title text-primary">ARCHITECT MANAL SHALAK</h6>
                 <h1 className="title">
-                  WE CREAT YOUR DREAM IDEAS
+                  WE CREATE YOUR DREAM IDEAS
                 </h1>
                 <p className="m-b30">
                 With over 16 years of experience in architecture and consultancy, Manal Shalak has established a

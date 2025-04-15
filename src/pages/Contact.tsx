@@ -8,12 +8,14 @@ const Contact = () => {
       <section className="content-inner-2 line-img">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-xl-6 col-lg-6 m-b30">
+          <div className="col-xl-6 col-lg-6 order-2 order-md-1 m-b30">
               <form
                 className="dz-form style-1 dzForm radius-no"
                 method="POST"
-                action="https://formspree.io/f/xdkelgpz"
+                action="https://api.web3forms.com/submit"
               >
+                <input type="hidden" name="access_key" value="ec9f48f7-b275-4e7b-934c-d731c02b77af" />
+
                 <div className="row sp10">
                   <div className="col-sm-6 m-b20">
                     <div className="input-group">
@@ -91,7 +93,7 @@ const Contact = () => {
               </form>
             </div>
 
-            <div className="col-xl-6 col-lg-6">
+            <div className="col-xl-6 col-lg-6 order-1 order-md-2">
               <div className="row">
                 <div className="col-lg-12 m-b30">
                   <div className="icon-bx-wraper style-8 bg-white">
