@@ -201,7 +201,105 @@ import commercial6 from "../assets/images/commercial/commercial6.jpg";
 import commercial7 from "../assets/images/commercial/commercial7.jpg";
 import commercial8 from "../assets/images/commercial/commercial8.jpg";
 
+import ksaView1 from "../assets/images/ksa/A- View 1.jpg";
+import ksaView2 from "../assets/images/ksa/A- View 2.jpg";
+import ksaView3 from "../assets/images/ksa/A- View 3.jpg";
+import ksaInterior1 from "../assets/images/ksa/Interior 1.jpg";
+import ksaInterior2 from "../assets/images/ksa/Interior 2.jpg";
+import ksaInterior3 from "../assets/images/ksa/Interior 3.jpg";
+import ksaInterior4 from "../assets/images/ksa/Interior 4.jpg";
+import ksaInterior5 from "../assets/images/ksa/Interior 5.jpg";
+
+import lebaneseElevation1 from "../assets/images/lebanese/Elevation 1.jpg";
+import lebaneseView1 from "../assets/images/lebanese/View 1 (1).jpg";
+import lebaneseView2 from "../assets/images/lebanese/View 2 (1).jpg";
+import lebaneseView3 from "../assets/images/lebanese/View 3 (1).jpg";
+
+import medicalView1 from "../assets/images/medical/view1.jpg";
+import medicalView2 from "../assets/images/medical/view2.jpg";
+import medicalView3 from "../assets/images/medical/view3.jpg";
+import medicalView4 from "../assets/images/medical/view4.jpg";
+import medicalView5 from "../assets/images/medical/view5.jpg";
+import medicalView6 from "../assets/images/medical/view6.jpg";
+import medicalView7 from "../assets/images/medical/view7.jpg";
+import medicalView8 from "../assets/images/medical/view8.jpg";
+import medicalView9 from "../assets/images/medical/view9.jpg";
+
+import modernElevation1 from "../assets/images/modern/e1.jpg";
+import modernElevation2 from "../assets/images/modern/e2.jpg";
+import modernView1 from "../assets/images/modern/view 1.jpg";
+import modernView2 from "../assets/images/modern/view 2.jpg";
+import modernView3 from "../assets/images/modern/view 3.jpg";
+import modernView4 from "../assets/images/modern/view 4.jpg";
+import modernView5 from "../assets/images/modern/view 5.jpg";
+import modernView6 from "../assets/images/modern/view 6.jpg";
+
+import residentialLR3 from "../assets/images/residential/lr/LR3.jpg";
+import residentialLR4 from "../assets/images/residential/lr/LR4.jpg";
+
+// 🛏️ Master Bedroom 1
+import MBR1 from "../assets/images/residential/mb1/MBR1.jpg";
+import MBR2 from "../assets/images/residential/mb1/MBR2.jpg";
+import MBR3 from "../assets/images/residential/mb1/MBR3.jpg";
+import MBR4 from "../assets/images/residential/mb1/MBR4.jpg";
+import MBR5 from "../assets/images/residential/mb1/MBR5.jpg";
+
+// 🛏️ Master Bedroom 2
+import GBR1 from "../assets/images/residential/mb2/GBR1.jpg";
+import GBR2 from "../assets/images/residential/mb2/GBR2.jpg";
+import GBR3 from "../assets/images/residential/mb2/GBR3.jpg";
+import GBR4 from "../assets/images/residential/mb2/GBR4.jpg";
+import GBR5 from "../assets/images/residential/mb2/GBR5.jpg";
+
+// 🪑 Salon
+import S1 from "../assets/images/residential/salon/S1.jpg";
+import S2 from "../assets/images/residential/salon/S2.jpg";
+import S3 from "../assets/images/residential/salon/S3.jpg";
+import S4 from "../assets/images/residential/salon/S4.jpg";
+import S5 from "../assets/images/residential/salon/S5.jpg";
+
 export const IMAGES = {
+  ksaView1: ksaView1,
+ksaView2: ksaView2,
+ksaView3: ksaView3,
+ksaInterior1: ksaInterior1,
+ksaInterior2: ksaInterior2,
+ksaInterior3: ksaInterior3,
+ksaInterior4: ksaInterior4,
+ksaInterior5: ksaInterior5,
+
+lebaneseElevation1: lebaneseElevation1,
+lebaneseView1: lebaneseView1,
+lebaneseView2: lebaneseView2,
+lebaneseView3: lebaneseView3,
+
+residentialLR3,
+residentialLR4,
+MBR1, MBR2, MBR3, MBR4, MBR5,
+GBR1, GBR2, GBR3, GBR4, GBR5,
+S1, S2, S3, S4, S5,
+
+medicalView1: medicalView1,
+medicalView2: medicalView2,
+medicalView3: medicalView3,
+medicalView4: medicalView4,
+medicalView5: medicalView5,
+medicalView6: medicalView6,
+medicalView7: medicalView7,
+medicalView8: medicalView8,
+medicalView9: medicalView9,
+
+modernElevation1: modernElevation1,
+modernElevation2: modernElevation2,
+modernView1: modernView1,
+modernView2: modernView2,
+modernView3: modernView3,
+modernView4: modernView4,
+modernView5: modernView5,
+modernView6: modernView6,
+
+
+
   logo: logo,
   logo2: logo2,
   logo4: logo4,

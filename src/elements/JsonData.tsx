@@ -1,4 +1,59 @@
 import { IMAGES } from "./theme";
+// 💡 Subtype-to-images mapping for LightGallery grouping
+export type HomeGalleryItem = {
+  img: string;
+  img2?: string;
+  categery: string;
+};
+
+export const ArchitectureSubtypeImages: Record<string, string[]> = {
+  "KSA Villa": [
+    IMAGES.ksaView1,
+    IMAGES.ksaView2,
+    IMAGES.ksaView3,
+    IMAGES.ksaInterior1,
+    IMAGES.ksaInterior2,
+    IMAGES.ksaInterior3,
+    IMAGES.ksaInterior4,
+    IMAGES.ksaInterior5,
+  ],
+  "Lebanese Style": [
+    IMAGES.lebaneseElevation1,
+    IMAGES.lebaneseView1,
+    IMAGES.lebaneseView2,
+    IMAGES.lebaneseView3,
+  ],
+  "Modern Villa": [
+    IMAGES.modernElevation1,
+    IMAGES.modernElevation2,
+    IMAGES.modernView1,
+    IMAGES.modernView2,
+    IMAGES.modernView3,
+    IMAGES.modernView4,
+    IMAGES.modernView5,
+    IMAGES.modernView6,
+  ],
+  "Medical Tourism": [
+    IMAGES.medicalView1,
+    IMAGES.medicalView2,
+    IMAGES.medicalView3,
+    IMAGES.medicalView4,
+    IMAGES.medicalView5,
+    IMAGES.medicalView6,
+    IMAGES.medicalView7,
+    IMAGES.medicalView8,
+    IMAGES.medicalView9,
+  ],
+};
+
+export const ResidentialSubtypeImages: Record<string, string[]> = {
+  "Living Room": [IMAGES.residentialLR3, IMAGES.residentialLR4],
+  "Master Bedroom 1": [IMAGES.MBR1, IMAGES.MBR2, IMAGES.MBR3, IMAGES.MBR4, IMAGES.MBR5],
+  "Master Bedroom 2": [IMAGES.GBR1, IMAGES.GBR2, IMAGES.GBR3, IMAGES.GBR4, IMAGES.GBR5],
+  "Salon": [IMAGES.S1, IMAGES.S2, IMAGES.S3, IMAGES.S4, IMAGES.S5],
+};
+
+
 export const HeaderSocialIcon = [
   { icon: "fab fa-facebook-f" },
   { icon: "fab fa-linkedin-in" },
@@ -8,22 +63,23 @@ export const HeaderSocialIcon = [
 export const MainSliderArr = [
   { img: IMAGES.mainslid_pic2 },
 ];
+
 export const HomeGalleryArr = [
-   // 4 Architecture Images (Items 1–4)
-   { img: IMAGES.architecture1, img2: IMAGES.architecture2, categery: "Architecture" },
-   { img: IMAGES.architecture3, img2: IMAGES.architecture4, categery: "Architecture" },
-   { img: IMAGES.architecture5, img2: IMAGES.architecture6, categery: "Architecture" },
-   { img: IMAGES.architecture7, img2: IMAGES.architecture8, categery: "Architecture" },
- 
-   // 2 Grand Bedroom Images (Items 5–6)
-   { img: IMAGES.interior1, img2: IMAGES.interior2, categery: "Grand Bedroom" },
-   { img: IMAGES.interior3, img2: IMAGES.interior4, categery: "Grand Bedroom" },
- 
-   // 2 Salon Images (Items 7–8)
-   { img: IMAGES.interior5, img2: IMAGES.interior6, categery: "Salon" },
-   { img: IMAGES.interior7, img2: IMAGES.interior8, categery: "Salon" },
-  
-   // Commercial Images (8 images)
+  // 4 Architecture Images (Items 1–4) -> We derive sub-types (Lebanese Style, KSA Villa, etc.) via getImageLabel
+  { img: IMAGES.architecture1, img2: IMAGES.architecture2, categery: "Architecture" },
+  { img: IMAGES.architecture3, img2: IMAGES.architecture4, categery: "Architecture" },
+  { img: IMAGES.architecture5, img2: IMAGES.architecture6, categery: "Architecture" },
+  { img: IMAGES.architecture7, img2: IMAGES.architecture8, categery: "Architecture" },
+
+  // 2 Grand Bedroom Images (Items 5–6)
+  { img: IMAGES.interior1, img2: IMAGES.interior2, categery: "Grand Bedroom" },
+  { img: IMAGES.interior3, img2: IMAGES.interior4, categery: "Grand Bedroom" },
+
+  // 2 Salon Images (Items 7–8)
+  { img: IMAGES.interior5, img2: IMAGES.interior6, categery: "Salon" },
+  { img: IMAGES.interior7, img2: IMAGES.interior8, categery: "Salon" },
+
+  // Commercial Images (8 images)
   {
     img: IMAGES.commercial1,
     img2: IMAGES.commercial2,
@@ -47,27 +103,24 @@ export const HomeGalleryArr = [
 
   // Residential Images (8 images)
   {
-    img: IMAGES.residential1,
-    img2: IMAGES.residential2,
+    img: IMAGES.residentialLR3,
     categery: "Residential",
   },
   {
-    img: IMAGES.residential3,
-    img2: IMAGES.residential4,
+    img: IMAGES.MBR1,
     categery: "Residential",
   },
   {
-    img: IMAGES.residential5,
-    img2: IMAGES.residential6,
+    img: IMAGES.GBR1,
     categery: "Residential",
   },
   {
-    img: IMAGES.residential7,
-    img2: IMAGES.residential8,
+    img: IMAGES.S1,
     categery: "Residential",
   },
+  
 
-  // Architecture Images (Optional)
+  // Additional Architecture Images (Optional/Repetitions)
   {
     img: IMAGES.architecture1,
     img2: IMAGES.architecture2,
@@ -82,10 +135,8 @@ export const HomeGalleryArr = [
     img: IMAGES.architecture5,
     img2: IMAGES.architecture6,
     categery: "Architecture",
-  }
+  },
 ];
-
-
 
 export const HomeServicesArr = [
   {
@@ -120,12 +171,14 @@ export const HomeTeamArr = [
   { img: IMAGES.team_pic4, title: "Austin Doe" },
   { img: IMAGES.team_pic2, title: " Andrey Carol", setStyle: "m-t40" },
 ];
+
 export const HomeTestimonialArr = [
   { img: IMAGES.testimonial_pic2, title: "Lala Rose " },
   { img: IMAGES.testimonial_pic3, title: "Rebecca Ruth" },
   { img: IMAGES.testimonial_pic2, title: "Lala Rose " },
   { img: IMAGES.testimonial_pic3, title: "Rebecca Ruth" },
 ];
+
 export const HomeBlogArr = [
   {
     img: IMAGES.blog_grid_pic1,
@@ -151,14 +204,14 @@ export const CounterUpArr = [
   { num: 4157, title: "COMPLETED PROJECTS" },
   { num: 2458, title: "CUP OF COFFEE" },
 ];
+
 export const OurFeaturArr = [
   { title: "Concept", icon: "flaticon-concept" },
   { title: "Design", icon: "flaticon-graphic-designer" },
-  { title: "Administration", icon: "flaticon-project-management" }, // Already in your set
+  { title: "Administration", icon: "flaticon-project-management" },
   { title: "Execution", icon: "flaticon-execution" },
-  { title: "Delivery", icon: "flaticon-telephone" }, // Closest alternative
+  { title: "Delivery", icon: "flaticon-telephone" },
 ];
-
 
 export const TeamArr = [
   { name: "Andrey Carol", img: IMAGES.team_pic1 },
@@ -197,6 +250,7 @@ export const PortfolioDetailsArr = [
   { img: IMAGES.work_pic10, changeStyle: "col-lg-3 " },
   { img: IMAGES.work_pic11, changeStyle: "col-lg-6 " },
 ];
+
 export const PortfolioDetailsArr2 = [
   { img: IMAGES.work_pic13, changeStyle: "col-lg-3" },
   { img: IMAGES.work_pic14, changeStyle: "col-lg-3 " },
@@ -207,6 +261,7 @@ export const RelatedWorkGalleryArr = [
   { img: IMAGES.work_pic7 },
   { img: IMAGES.work_pic8 },
 ];
+
 export const ServicesArr = [
   {
     img: IMAGES.servic_pic1,
@@ -255,10 +310,8 @@ export const ServicesArr = [
     title: "Project Management",
     description:
       "Structured oversight across all phases to ensure smooth project delivery from start to finish.",
-  }
-  ,
+  },
 ];
-
 
 export const BlogCardArr = [
   { img: IMAGES.blog_large_pic1 },
@@ -339,11 +392,13 @@ export const MainBanner3Arr = [
   { img: IMAGES.mainslid_pic5 },
   { img: IMAGES.mainslid_pic1 },
 ];
+
 export const MainBanner5Arr = [
   { title: "We Create Your Dream Ideas ", img: IMAGES.mainslid_pic6 },
   { title: "We Create Your Dream Ideas ", img: IMAGES.mainslid_pic6 },
   { title: "We Create Your Dream Ideas ", img: IMAGES.mainslid_pic6 },
 ];
+
 export const Home5ServiceArr = [
   { icon: "flaticon-blueprint-1", title: "Interior Design" },
   { icon: "flaticon-blueprint", title: "Construction" },
@@ -402,17 +457,20 @@ export const Home5PortfolioButtonsArr = [
   { name: "Interior Design" },
   { name: "Construction" },
 ];
+
 export const Home5TestionialArr = [
   { img: IMAGES.testimonial_pic2, name: "Andrey", position: "Designer" },
   { img: IMAGES.testimonial_pic3, name: "Jakob", position: "developer" },
   { img: IMAGES.testimonial_pic4, name: "Lindsey", position: "programmer" },
 ];
+
 export const Home5CreactiveExpriseArr = [
   { img: IMAGES.team_pic9, name: "Andrey", position: "Designer" },
   { img: IMAGES.team_pic10, name: "Jakob", position: "developer" },
   { img: IMAGES.team_pic11, name: "Lindsey", position: "programmer" },
   { img: IMAGES.team_pic12, name: "Andrey", position: "Designer" },
 ];
+
 export const Home5BlogArr = [
   { img: IMAGES.blog_pic5 },
   { img: IMAGES.blog_pic6 },
@@ -515,7 +573,6 @@ export const BgSmallImgArr = [
   {
     // img: IMAGES.switcher_small_bg5,
     imgLarge: "",
-
     ptSmall: IMAGES.switcher_small_pt5,
     ptLarge: IMAGES.switcher_large_pt5,
   },

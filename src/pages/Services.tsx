@@ -63,11 +63,8 @@ const Services = () => {
                       <div>
                         <div className="sep-tl"></div>
                         <div className="sep-br"></div>
-                        <h4 className="title m-b15">
-                          <Link to="/services-details" className="text-white">
-                            {title}
-                          </Link>
-                        </h4>
+                        <h4 className="title m-b15 text-white">{title}</h4>
+
                         <p>{description}</p>
                       </div>
                     </div>

@@ -25,14 +25,14 @@ const HomeGallery = ({ prev, next }: propsFile) => {
       <Swiper
         className="swiper-container swiper-portfolio lightgallery aos-item"
         slidesPerView={4}
-        speed={1500}
+        speed={2500}
         loop={true}
         modules={[Navigation, Autoplay]}
         navigation={{
           prevEl: `.${prev}`,
           nextEl: `.${next}`,
         }}
-        autoplay={{ delay: 1500 }}
+        autoplay={{ delay: 2500 }}
         breakpoints={{
           1200: { slidesPerView: 4 },
           991: { slidesPerView: 3 },
