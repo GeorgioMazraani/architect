@@ -142,17 +142,17 @@ export const HomeServicesArr = [
   {
     img: IMAGES.servic_pic1,
     title: "Architectural Design",
-    description: "Innovative and functional designs tailored to your needs and vision.",
+    description: "Innovative and functional designs tailored to your vision, with complete concept development, architectural drawings, and technical documentation.",
   },
   {
     img: IMAGES.servic_pic2,
     title: "Construction",
-    description: "Reliable construction services with attention to quality, detail, and timelines.",
+    description: "Reliable construction services with full project delivery under the supervision of a licensed engineer, ensuring quality, precision, and timely execution at every stage.",
   },
   {
     img: IMAGES.servic_pic3,
     title: "Interior Design",
-    description: "Stylish, comfortable, and personalized interior solutions that bring spaces to life.",
+    description: "Stylish, comfortable, and personalized interior solutions—fully designed and executed from concept to completion, with every detail handled.",
   },
 ];
 
@@ -267,49 +267,49 @@ export const ServicesArr = [
     img: IMAGES.servic_pic1,
     title: "Architectural Design",
     description:
-      "Innovative and functional designs tailored to your needs and vision.",
+     "Innovative and functional designs tailored to your vision, with complete concept development, architectural drawings, and technical documentation.",
   },
   {
     img: IMAGES.servic_pic2,
     title: "Construction",
     description:
-      "Reliable construction services with attention to quality, detail, and timelines.",
+      "Reliable construction services with full project delivery under the supervision of a licensed engineer, ensuring quality, precision, and timely execution at every stage.",
   },
   {
     img: IMAGES.servic_pic3,
     title: "Interior Design",
     description:
-      "Stylish, comfortable, and personalized interior solutions that bring spaces to life.",
+      "Stylish, comfortable, and personalized interior solutions—fully designed and executed from concept to completion, with every detail handled.",
   },
   {
     img: IMAGES.servic_pic4,
     title: "Real Estate",
     description:
-      "Comprehensive support in property selection, evaluation, and investment.",
+      "Comprehensive support in property selection, evaluation, investment, and legal documentation to ensure secure and informed transactions.",
   },
   {
     img: IMAGES.servic_pic5,
     title: "Licenses & Permits",
     description:
-      "Handling all legal procedures to ensure smooth and compliant project approvals.",
+     "Managing all legal procedures with full architectural, civil, mechanical, and electrical documentation to ensure compliant project approvals.",
   },
   {
     img: IMAGES.servic_pic6,
     title: "Topography",
     description:
-      "Accurate land surveying and analysis to support efficient and informed planning.",
+      "Accurate land surveying and analysis with prepared documentation and a professional team ready to assist.",
   },
   {
     img: IMAGES.servic_pic7,
     title: "Administrative Documentation",
     description:
-      "Managing the required documentation to streamline your project's execution.",
+      "Preparation and management of all administrative documents, including permit applications, technical dossiers, and compliance files, to streamline project execution.",
   },
   {
     img: IMAGES.servic_pic8,
     title: "Project Management",
     description:
-      "Structured oversight across all phases to ensure smooth project delivery from start to finish.",
+      "Structured oversight across all phases, including real estate transactions, documentation, and resolution of related disputes, to ensure seamless project delivery.",
   },
 ];
 

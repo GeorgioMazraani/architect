@@ -2,8 +2,18 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IMAGES } from "./theme";
 import { PanInfo } from "framer-motion";
+
 const slides = [
   {
+    id: "legacy",
+    title: "Heritage & Legacy",
+    content: `Rooted in timeless design principles and inspired by the spirit of past architectural eras,
+              Manal Shalak brings depth and soul to every project. Her vision reimagines nostalgic beauty through
+              a modern lens—blending simplicity, harmony, and elegance. Each structure becomes a tribute to enduring
+              aesthetics and a forward-looking approach that connects tradition with innovation.`,
+  },
+  {
+    
     id: "intro",
     title: "About",
     content: `Passionate about creating spaces that seamlessly blend creativity with practicality, she works closely with
@@ -24,7 +34,7 @@ const slides = [
     content: `To be a leading architectural and consultancy firm recognized for its unique design approach,
               sustainable practices, and commitment to shaping urban and residential landscapes that enhance
               quality of life.`,
-  },
+  }
 ];
 
 function HomeAbout() {
@@ -53,8 +63,6 @@ function HomeAbout() {
       handlePrev();
     }
   };
-  
-  
 
   useEffect(() => {
     if (!paused) {
@@ -68,7 +76,7 @@ function HomeAbout() {
   return (
     <div className="container my-5">
       <div className="row align-items-center">
-        {/* FIXED IMAGE COLUMN */}
+        {/* IMAGE COLUMN */}
         <div className="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
           <img
             src={IMAGES.about_pic2}
@@ -76,7 +84,6 @@ function HomeAbout() {
             className="img-fluid mx-auto d-block"
             style={{ maxWidth: "85%", borderRadius: "8px" }}
           />
-
         </div>
 
         {/* TEXT COLUMN */}
@@ -99,15 +106,16 @@ function HomeAbout() {
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
             >
-              {slides[currentIndex].title && (
-                <h5 className="fw-bold mb-3 fs-4">{slides[currentIndex].title}</h5>
-              )}
+              <h5 className="fw-bold mb-3 fs-4">{slides[currentIndex].title}</h5>
               <p className="fs-6">{slides[currentIndex].content}</p>
             </motion.div>
           </AnimatePresence>
 
-          {/* BULLETS - OUTSIDE of AnimatePresence */}
-          <div className="d-flex justify-content-center gap-2 mt-5 position-absolute w-100" style={{ bottom: 0 }}>
+          {/* BULLETS */}
+          <div
+            className="d-flex justify-content-center gap-2 mt-5 position-absolute w-100"
+            style={{ bottom: 0 }}
+          >
             {slides.map((_, i) => (
               <span
                 key={i}

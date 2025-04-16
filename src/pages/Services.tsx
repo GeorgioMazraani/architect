@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import CommonBanner from "../elements/CommonBanner";
 import { ServicesArr } from "../elements/JsonData";
 import { IMAGES } from "../elements/theme";
