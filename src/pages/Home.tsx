@@ -1,10 +1,8 @@
 import { useEffect, useContext } from "react";
 
 import HomeGallery from "../components/HomeGallery";
-
 import MainSlider from "../components/MainSlider";
 import HomeAbout2 from "../elements/HomeAbout2";
-
 import HomeServices from "../elements/HomeServices";
 import { Context } from "../context/contextApi";
 import { motion } from "framer-motion";
@@ -16,24 +14,25 @@ const Home = () => {
     document.body.setAttribute("data-color", "color_1");
   }, [switcheData]);
 
- 
   return (
     <div className="page-content bg-white">
       <MainSlider />
+
+      {/* ABOUT SECTION */}
       <section
         className="content-inner line-img section-title style-2"
         data-name="About Us"
       >
         <div className="container">
           <div className="section-head style-1 text-center">
-            <h2 className="title">
-            WHY CHOOSE US?
-            </h2>
+            <h2 className="title">WHY CHOOSE US?</h2>
             <div className="dz-separator style-1 text-primary"></div>
           </div>
           <HomeAbout2 />
         </div>
       </section>
+
+      {/* PORTFOLIO SECTION */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -51,23 +50,55 @@ const Home = () => {
                 <div className="dz-separator style-1 text-primary"></div>
               </div>
             </div>
+
+            {/* ARROW BUTTONS */}
             <div className="col-md-4 text-end">
-              <div className="portfolio-pagination d-inline-block mb-5">
-                <div className="btn-prev swiper-button-prev2 pe-3">
-                  <i className="las la-long-arrow-alt-left"></i>PREV
+              <div className="portfolio-pagination d-inline-flex gap-4 mb-5">
+                {/* PREV */}
+                <div
+                  className="btn-prev swiper-button-prev2"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <i
+                    className="las la-long-arrow-alt-left"
+                    style={{ position: "static", transform: "none" }}
+                  />
+                  <span>PREV</span>
                 </div>
-                <div className="btn-next swiper-button-next2 ps-3">
-                  NEXT<i className="las la-long-arrow-alt-right"></i>
+
+                {/* NEXT */}
+                <div
+                  className="btn-next swiper-button-next2"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span>NEXT</span>
+                  <i
+                    className="las la-long-arrow-alt-right"
+                    style={{ position: "static", transform: "none" }}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <HomeGallery
           prev={"swiper-button-prev2"}
           next={"swiper-button-next2"}
         />
       </motion.section>
+
+      {/* SERVICES SECTION */}
       <section className="content-inner-1 line-img overflow-hidden">
         <div className="container">
           <div className="section-head style-1 text-center">
@@ -79,8 +110,6 @@ const Home = () => {
           <HomeServices />
         </div>
       </section>
- 
-      
     </div>
   );
 };

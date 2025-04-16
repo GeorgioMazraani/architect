@@ -258,6 +258,15 @@ import S3 from "../assets/images/residential/salon/S3.jpg";
 import S4 from "../assets/images/residential/salon/S4.jpg";
 import S5 from "../assets/images/residential/salon/S5.jpg";
 
+import pc1 from "../assets/images/pc/view 1 .jpg";
+import pc2 from "../assets/images/pc/view 2 .jpg";
+import pc3 from "../assets/images/pc/view 3 .jpg";
+import pc4 from "../assets/images/pc/view 4 .jpg";
+import pc5 from "../assets/images/pc/view 5 .jpg";
+import pc6 from "../assets/images/pc/view 6 .jpg";
+import pc7 from "../assets/images/pc/view 7 .jpg";
+import pc8 from "../assets/images/pc/view 8 .jpg";
+
 export const IMAGES = {
   ksaView1: ksaView1,
 ksaView2: ksaView2,
@@ -278,6 +287,15 @@ residentialLR4,
 MBR1, MBR2, MBR3, MBR4, MBR5,
 GBR1, GBR2, GBR3, GBR4, GBR5,
 S1, S2, S3, S4, S5,
+
+pc1,
+pc2,
+pc3,
+pc4,
+pc5,
+pc6,
+pc7,
+pc8,
 
 medicalView1: medicalView1,
 medicalView2: medicalView2,

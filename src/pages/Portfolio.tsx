@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import {
   ArchitectureSubtypeImages,
   ResidentialSubtypeImages,
+  CommercialSubtypeImages,
 } from "../elements/JsonData";
 import type { HomeGalleryItem } from "../elements/JsonData";
 
@@ -39,6 +40,10 @@ const getImageLabel = (img: string, category: string) => {
     if ([IMAGES.S1, IMAGES.S2, IMAGES.S3, IMAGES.S4, IMAGES.S5].includes(img))
       return "Salon";
     return "Residential Project";
+  } else if (category.includes("Commercial")) {
+    if ([IMAGES.pc1, IMAGES.pc2].includes(img)) return "Padel Courts";
+    if ([IMAGES.commercial1, IMAGES.commercial2].includes(img)) return "Interior Commercial";
+    return "Commercial";
   }
   return "";
 };
@@ -55,33 +60,48 @@ const Portfolio = () => {
     setActive(title);
 
     if (title === "Commercial") {
-      const filtered = HomeGalleryArr.filter((el) =>
-        el.categery.includes("Commercial")
-      );
-      setData(filtered);
+      const desiredCommercialOrder = ["Padel Courts", "Interior Commercial"];
+      const commercialItems = HomeGalleryArr.filter(el => el.categery === "Commercial");
+      const labeledItems = commercialItems.map(item => ({
+        ...item,
+        label: getImageLabel(item.img, item.categery),
+      }));
+      const seen = new Set<string>();
+      const filteredUnique = desiredCommercialOrder.flatMap(label => {
+        const firstMatch = labeledItems.find(
+          item => item.label === label && !seen.has(label)
+        );
+        if (firstMatch) {
+          seen.add(label);
+          return [firstMatch];
+        }
+        return [];
+      });
+      const cleaned = filteredUnique.map(({ label, ...rest }) => rest);
+      setData(cleaned);
     } else if (title === "Residential") {
-      const filtered = HomeGalleryArr.filter((el) =>
-        el.categery.includes("Residential")
-      );
+      const filtered = HomeGalleryArr.filter(el => el.categery.includes("Residential"));
       setData(filtered);
     } else {
-      const allowedImages = [
-        IMAGES.architecture1,
-        IMAGES.architecture2,
-        IMAGES.architecture3,
-        IMAGES.architecture4,
-        IMAGES.architecture5,
-        IMAGES.architecture6,
-        IMAGES.architecture7,
-        IMAGES.architecture8,
-      ];
-     const filtered = HomeGalleryArr.filter(
-  (el) =>
-    el.categery === "Architecture" &&
-    (allowedImages.includes(el.img) || (el.img2 && allowedImages.includes(el.img2)))
-);
-
-      setData(filtered);
+      const desiredOrder = ["Modern Villa", "Lebanese Style", "Medical Tourism", "KSA Villa"];
+      const architectureItems = HomeGalleryArr.filter(el => el.categery === "Architecture");
+      const labeledItems = architectureItems.map(item => ({
+        ...item,
+        label: getImageLabel(item.img, item.categery),
+      }));
+      const seen = new Set<string>();
+      const filteredUnique = desiredOrder.flatMap(label => {
+        const firstMatch = labeledItems.find(
+          item => item.label === label && !seen.has(label)
+        );
+        if (firstMatch) {
+          seen.add(label);
+          return [firstMatch];
+        }
+        return [];
+      });
+      const cleaned = filteredUnique.map(({ label, ...rest }) => rest);
+      setData(cleaned);
     }
   };
 
@@ -96,7 +116,6 @@ const Portfolio = () => {
   return (
     <div className="page-content bg-white">
       <CommonBanner img={IMAGES.bnr5} title="OUR PORTFOLIO" text="Portfolio" />
-
       <section className="content-inner-1 line-img overflow-hidden masonry-portfolio">
         <div className="container">
           <div className="site-filters style-1 clearfix center">
@@ -114,88 +133,61 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {active === "Commercial" ? (
-          <Swiper
-            className="swiper-container swiper-portfolio aos-item"
-            slidesPerView={4}
-            spaceBetween={0}
-            loop={true}
-            breakpoints={{
-              1200: { slidesPerView: 4 },
-              991: { slidesPerView: 3 },
-              575: { slidesPerView: 2 },
-              240: { slidesPerView: 1 },
-            }}
-          >
-            {data.map((item, ind) => (
+        <Swiper
+          className="swiper-container swiper-portfolio lightgallery aos-item"
+          slidesPerView={4}
+          spaceBetween={0}
+          loop={true}
+          breakpoints={{
+            1200: { slidesPerView: 4 },
+            991: { slidesPerView: 3 },
+            575: { slidesPerView: 2 },
+            240: { slidesPerView: 1 },
+          }}
+        >
+          {data.map((item, ind) => {
+            const label = getImageLabel(item.img, item.categery);
+            const groupName = makeGroupName(label);
+            const gallery =
+              ArchitectureSubtypeImages[label] ||
+              ResidentialSubtypeImages[label] ||
+              CommercialSubtypeImages[label];
+
+            return (
               <SwiperSlide className="swiper-slide" key={ind}>
                 <div className="dz-box overlay style-1">
                   <div className="dz-media">
                     <img src={item.img} alt="" style={imageStyle} />
                   </div>
                   <div className="dz-info">
-                    <h6 className="sub-title">Commercial Project</h6>
-                    <h4 className="title m-b15 text-white">Commercial Project</h4>
+                    <LightGallery speed={500} plugins={[lgZoom]}>
+                      {gallery?.map((img, i) => (
+                        <a
+                          key={i}
+                          href={img}
+                          data-exthumbimage={img}
+                          data-src={img}
+                          className="lightimg"
+                          title={label}
+                        >
+                          {i === 0 && (
+                            <i
+                              className="la la-plus"
+                              style={{ fontSize: "24px", color: "#fff" }}
+                            ></i>
+                          )}
+                        </a>
+                      ))}
+                    </LightGallery>
+
+                    <h6 className="sub-title">{label}</h6>
+                    <h4 className="title m-b15 text-white">{label}</h4>
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <LightGallery speed={500} plugins={[lgZoom]} selector={".lightimg"}>
-            <Swiper
-              className="swiper-container swiper-portfolio lightgallery aos-item"
-              slidesPerView={4}
-              spaceBetween={0}
-              loop={true}
-              breakpoints={{
-                1200: { slidesPerView: 4 },
-                991: { slidesPerView: 3 },
-                575: { slidesPerView: 2 },
-                240: { slidesPerView: 1 },
-              }}
-            >
-              {data.map((item, ind) => {
-                const label = getImageLabel(item.img, item.categery);
-                const groupName = makeGroupName(label);
-
-                return (
-                  <SwiperSlide className="swiper-slide" key={ind}>
-                    <div className="dz-box overlay style-1">
-                      <div className="dz-media">
-                        <img src={item.img} alt="" style={imageStyle} />
-                      </div>
-                      <div className="dz-info">
-                        {(ArchitectureSubtypeImages[label] ||
-                          ResidentialSubtypeImages[label])?.map((img, i) => (
-                          <a
-                            key={i}
-                            href={img}
-                            data-exthumbimage={img}
-                            data-lg={groupName}
-                            data-src={img}
-                            className="lightimg"
-                            style={{ display: i === 0 ? "block" : "none" }}
-                            title={label}
-                          >
-                            {i === 0 && (
-                              <i
-                                className="la la-plus"
-                                style={{ fontSize: "24px", color: "#fff" }}
-                              ></i>
-                            )}
-                          </a>
-                        ))}
-                        <h6 className="sub-title">{label}</h6>
-                        <h4 className="title m-b15 text-white">{label}</h4>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </LightGallery>
-        )}
+            );
+          })}
+        </Swiper>
       </section>
     </div>
   );

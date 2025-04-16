@@ -14053,6 +14053,12 @@ button:focus {
   -webkit-transform: translateY(-50%);
   cursor: pointer;
 }
+/* Fix for icons being forced to absolute position from Owl Carousel */
+.swiper-button-prev2 i,
+.swiper-button-next2 i {
+  position: static !important;
+  transform: none !important;
+}
 
 .owl-btn-center-lr .owl-prev {
   left: -110px;

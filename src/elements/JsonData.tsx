@@ -5,6 +5,29 @@ export type HomeGalleryItem = {
   img2?: string;
   categery: string;
 };
+export const CommercialSubtypeImages: Record<string, string[]> = {
+  "Padel Courts": [
+    IMAGES.pc1,
+    IMAGES.pc2,
+    IMAGES.pc3,
+    IMAGES.pc4,
+    IMAGES.pc5,
+    IMAGES.pc6,
+    IMAGES.pc7,
+    IMAGES.pc8,
+  ],
+  "Interior Commercial": [
+    IMAGES.commercial1,
+    IMAGES.commercial2,
+    IMAGES.commercial3,
+    IMAGES.commercial4,
+    IMAGES.commercial5,
+    IMAGES.commercial6,
+    IMAGES.commercial7,
+    IMAGES.commercial8,
+  ],
+};
+
 
 export const ArchitectureSubtypeImages: Record<string, string[]> = {
   "KSA Villa": [
@@ -70,7 +93,8 @@ export const HomeGalleryArr = [
   { img: IMAGES.architecture3, img2: IMAGES.architecture4, categery: "Architecture" },
   { img: IMAGES.architecture5, img2: IMAGES.architecture6, categery: "Architecture" },
   { img: IMAGES.architecture7, img2: IMAGES.architecture8, categery: "Architecture" },
-
+  // ✅ NEW: Preview for Padel Courts
+  { img: IMAGES.pc1, categery: "Commercial" },
   // 2 Grand Bedroom Images (Items 5–6)
   { img: IMAGES.interior1, img2: IMAGES.interior2, categery: "Grand Bedroom" },
   { img: IMAGES.interior3, img2: IMAGES.interior4, categery: "Grand Bedroom" },
