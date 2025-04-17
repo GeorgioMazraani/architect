@@ -2,9 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import LightGallery from "lightgallery/react";
 import lgZoom from "lightgallery/plugins/zoom";
-import { HomeGalleryArr } from "../elements/JsonData";
-
-
+import { portArr } from "../elements/JsonData";
+import { useNavigate } from "react-router-dom";
 
 interface propsFile {
   prev: string;
@@ -17,8 +16,14 @@ const HomeGallery = ({ prev, next }: propsFile) => {
     height: "300px",
     objectFit: "cover",
   };
+  const navigate = useNavigate();
 
-  const filteredImages = HomeGalleryArr.slice(0, 8);
+  const handleNavigate = (item: any) => {
+    navigate(`/Portfolio?category=${item.categery}`);
+  };
+
+
+  const filteredImages = portArr.slice(0, 8);
 
   return (
     <LightGallery speed={500} plugins={[lgZoom]} selector={".lightimg"}>
@@ -47,15 +52,17 @@ const HomeGallery = ({ prev, next }: propsFile) => {
                 <img src={item.img} alt="" style={imageStyle} />
               </div>
               <div className="dz-info">
-                <span
-                  data-exthumbimage={item.img}
-                  data-src={item.img}
+                <div
+                  onClick={() => handleNavigate(item)}
                   className="view-btn lightimg"
+                  style={{ cursor: "pointer" }}
                 >
                   <img src={item.img} alt="" style={{ display: "none" }} />
-                </span>
-                <h6 className="sub-title">{item.categery}</h6>
+                </div>
+
+                <h6 className="sub-title text-uppercase">{item.category}</h6>
                 <h4 className="title m-b15 text-white">{item.categery}</h4>
+
               </div>
             </div>
           </SwiperSlide>

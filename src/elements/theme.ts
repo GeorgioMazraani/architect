@@ -200,6 +200,7 @@ import commercial5 from "../assets/images/commercial/commercial5.jpg";
 import commercial6 from "../assets/images/commercial/commercial6.jpg";
 import commercial7 from "../assets/images/commercial/commercial7.jpg";
 import commercial8 from "../assets/images/commercial/commercial8.jpg";
+import padel1 from "../assets/images/commercial/padel1.jpg";
 
 import ksaView1 from "../assets/images/ksa/A- View 1.jpg";
 import ksaView2 from "../assets/images/ksa/A- View 2.jpg";
@@ -517,4 +518,5 @@ modernView6: modernView6,
   commercial6: commercial6,
   commercial7: commercial7,
   commercial8: commercial8,
+  padel1:padel1,
 };

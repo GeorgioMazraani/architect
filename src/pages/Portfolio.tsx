@@ -1,10 +1,11 @@
 import CommonBanner from "../elements/CommonBanner";
 import { IMAGES } from "../elements/theme";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LightGallery from "lightgallery/react";
 import lgZoom from "lightgallery/plugins/zoom";
 import { HomeGalleryArr } from "../elements/JsonData";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   ArchitectureSubtypeImages,
@@ -51,10 +52,16 @@ const getImageLabel = (img: string, category: string) => {
 const Portfolio = () => {
   const [data, setData] = useState<HomeGalleryItem[]>([]);
   const [active, setActive] = useState("Architecture");
-
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const category = searchParams.get("category");
   useEffect(() => {
-    FilterButton("Architecture");
-  }, []);
+    if (category && typeof category === "string") {
+      FilterButton(category);
+    } else {
+      FilterButton("Architecture");
+    }
+  }, [category]);
 
   const FilterButton = (title: string) => {
     setActive(title);
@@ -147,7 +154,6 @@ const Portfolio = () => {
         >
           {data.map((item, ind) => {
             const label = getImageLabel(item.img, item.categery);
-            const groupName = makeGroupName(label);
             const gallery =
               ArchitectureSubtypeImages[label] ||
               ResidentialSubtypeImages[label] ||
@@ -180,7 +186,6 @@ const Portfolio = () => {
                       ))}
                     </LightGallery>
 
-                    <h6 className="sub-title">{label}</h6>
                     <h4 className="title m-b15 text-white">{label}</h4>
                   </div>
                 </div>

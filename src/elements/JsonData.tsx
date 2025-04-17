@@ -28,6 +28,18 @@ export const CommercialSubtypeImages: Record<string, string[]> = {
   ],
 };
 
+export const portArr = [
+  // Architecture Projects
+  { img: IMAGES.architecture1, img2: IMAGES.architecture2, categery: "Architecture", category: "Lebanese Style" },
+  { img: IMAGES.architecture5, img2: IMAGES.architecture6, categery: "Architecture", category: "Modern Villa" },
+
+  // Commercial Projects
+  { img: IMAGES.commercial1, img2: IMAGES.commercial2, categery: "Commercial", category: "Office Lobby" },
+  { img: IMAGES.padel1, img2: IMAGES.commercial2, categery: "Commercial", category: "Padel Court" },
+    // Residential Interior Projects
+    { img: IMAGES.interior1, img2: IMAGES.interior2, categery: "Residential", category: "Grand Bedroom" },
+    { img: IMAGES.S5, img2: IMAGES.interior6, categery: "Residential", category: "Salon" },
+];
 
 export const ArchitectureSubtypeImages: Record<string, string[]> = {
   "KSA Villa": [

@@ -7,10 +7,7 @@ const slides = [
   {
     id: "legacy",
     title: "Heritage & Legacy",
-    content: `Rooted in timeless design principles and inspired by the spirit of past architectural eras,
-              Manal Shalak brings depth and soul to every project. Her vision reimagines nostalgic beauty through
-              a modern lens—blending simplicity, harmony, and elegance. Each structure becomes a tribute to enduring
-              aesthetics and a forward-looking approach that connects tradition with innovation.`,
+    content: `Rooted in timeless design principles and traditional architectural views, Manal Shalak brings depth and soul to every project. She reimagines classic beauty through a modern lens, blending simplicity, harmony, and elegance to create spaces that honor tradition while embracing innovation.`,
   },
   {
     
@@ -88,11 +85,12 @@ function HomeAbout() {
 
         {/* TEXT COLUMN */}
         <div
-          className="col-lg-6 position-relative"
-          style={{ minHeight: 300 }}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
+  className="col-lg-6 position-relative pb-4 pb-lg-0"
+  style={{ minHeight: 300 }}
+  onMouseEnter={() => setPaused(true)}
+  onMouseLeave={() => setPaused(false)}
+>
+
           {/* SLIDING TEXT */}
           <AnimatePresence mode="wait">
             <motion.div
